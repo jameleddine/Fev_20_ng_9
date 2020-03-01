@@ -1,0 +1,65 @@
+<button class="btn btn-danger" (click)="decrement()">-</button>
+{{count}}
+<button class="btn btn-success" (click)="increment()">+</button>
+<hr>
+<input [(ngModel)]="username"><button (click)="fn()">get data</button>
+<p>Hello {{username}}!</p>
+<hr>
+<div class="container">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" [(ngModel)]="name">
+    </div>
+    <div class="form-group" *ngIf="name == 'jamel'">
+        <label>Email</label>
+        <input class="form-control" [(ngModel)]="email">
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input class="form-control" [(ngModel)]="phone">
+    </div>
+    <div class="form-group">
+        <label>About</label>
+        <textarea class="form-control" [(ngModel)]="about"></textarea>
+    </div>
+    <button class="btn btn-info" (click)="save()">Save</button>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of users">
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+                <tr>
+                    <input [(ngModel)]="keyname"/>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of HEROES | search:keyname" [ngClass]="{rouge:item.id==1,noir:item.id==2,jaune:item.id==4}">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

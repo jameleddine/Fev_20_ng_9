@@ -1,0 +1,51 @@
+
+
+<div class="container">
+    <div class="col-md-12 text-center">
+           <img src="/assets/images/logo.png" width="180"/>
+    </div>
+    <div class="row">
+        <div class="col-md-5 mx-auto">
+<div class="myform form ">
+    <div class="logo mb-3">
+       <div class="col-md-12 text-center">
+          <h1 >Signup</h1>
+       </div>
+    </div>
+  <form novalidate [formGroup]="myform">
+       <div class="form-group">
+          <label for="exampleInputEmail1">First Name</label>
+          <input type="text" formControlName="nameForm" class="form-control" >
+          <span class="error" *ngIf="myform.controls.nameForm.invalid && (myform.controls.nameForm.dirty || myform.controls.nameForm.touched)">
+             Name invalid
+          </span>
+       </div>
+
+       <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" formControlName="emailForm" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+          <span class="error" *ngIf="myform.controls.emailForm.invalid && (myform.controls.emailForm.dirty || myform.controls.emailForm.touched)">
+            email invalid
+         </span>
+         </div>
+       <div class="form-group">
+          <label for="exampleInputEmail1">Password</label>
+          <input type="password" formControlName="passwordForm" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+          <span class="error" *ngIf="myform.controls.passwordForm.invalid && (myform.controls.passwordForm.dirty || myform.controls.passwordForm.touched)">
+            Password invalid
+         </span>
+         </div>
+       <div class="col-md-12 text-center mb-3">
+          <button [disabled]="myform.invalid" class=" btn btn-block mybtn  tx-tfm" (click)="register()">Inscription</button>
+       </div>
+      </form>
+       <div class="col-md-12 ">
+          <div class="form-group">
+             <p class="text-center"><a routerLink="/connexion" id="signin">Already have an account?</a></p>
+          </div>
+       </div>
+  
+ </div>
+ </div>
+ </div>
+ </div>

@@ -1,0 +1,42 @@
+<div class="container">
+    <!-- <h1> List des offres d'emplois</h1> -->
+    <h1> {{'title'|translate}}</h1>
+    <h5> {{'msg' | translate}}</h5>
+    <div class="spinner-border" *ngIf="loading"></div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Salaire</th>
+                <th>Contrat</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <th><input class="form-control" placeholder="search title" [(ngModel)]="titleSearch"></th>
+                <th><input class="form-control" placeholder="search description"  [(ngModel)]="descriptionSearch"></th>
+                <th><input class="form-control" placeholder="search contract" [(ngModel)]="contractSearch"></th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of posts| searchMulti:titleSearch:descriptionSearch:contractSearch">
+                <td>{{post.title}}</td>
+                <td>{{post.description}}</td>
+                <td>{{post.salaire}}</td>
+                <td>{{post.contract_type}}</td>
+                <td>{{post.status}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="delete(post)">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-info" (click)="edit(post)">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

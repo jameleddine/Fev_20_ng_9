@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiEndpoint:"192.1.1.1"
+
 };
